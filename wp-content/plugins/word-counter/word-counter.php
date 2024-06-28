@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name:       Refine Post
+ * Plugin Name:       Word Counter
  * Plugin URI:        https://example.com/plugins/the-basics/
  * Description:       This is a plugin that's refine your post and text or page.
  * Version:           1.0.0
@@ -18,7 +18,7 @@
 
 /*============================object Orinted Programming Start==================================*/
 
-class refine_post_wpd
+class word_counter_wpd
 {
     public function __destruct()
     {
@@ -27,16 +27,16 @@ class refine_post_wpd
 
     function initialize()
     {
-        add_filter('the_title', array($this, 'refine_post_change_title'));
-        add_filter('the_content', array($this, 'refine_post_change_content'));
+        add_filter('the_title', [$this, 'word_counter_change_title']);
+        add_filter('the_content', [$this, 'word_counter_change_content'], 9);
     }
 
-    function refine_post_change_title($post_title)
+    function word_counter_change_title($post_title)
     {   //return uppercase
         return strtoupper($post_title);
     }
 
-    function refine_post_change_content($post_content)
+    function word_counter_change_content($post_content)
     //find word count
     {
         $content = strip_tags($post_content);
@@ -48,7 +48,7 @@ class refine_post_wpd
     }
 }
 
-new refine_post_wpd();
+new word_counter_wpd();
 /*============================object Orinted Programming End==================================*/
 
 
