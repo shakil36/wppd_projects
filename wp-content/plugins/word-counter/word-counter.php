@@ -49,6 +49,7 @@ class word_counter_wpd
 }
 
 new word_counter_wpd();
+
 /*============================object Orinted Programming End==================================*/
 
 
