@@ -59,7 +59,7 @@ class Hookster_Practice_Plugin
 
     function change_title($title, $post_id)
     {
-        $after_change_title = $title . " -- Second Plugin-- {$post_id}";
+        $after_change_title = $title;
         return $after_change_title;
     }
     function add_header_content()

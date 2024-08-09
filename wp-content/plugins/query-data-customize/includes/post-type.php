@@ -29,9 +29,22 @@ class Admin_menu_post_type_customize
                     'menu_name' => "wedevs",
                 ),
                 'menu_position' => 82,
-                'menu_icon' => 'dashicons-post-status',
-                'supports' => array('title', 'editor', 'thumbnail'),
+                'menu_icon' => 'dashicons-admin-home',
+                'supports' => ['title', 'editor', 'thumbnail'],
+                'rewrite' => [
+                    'slug' => 'wedevs',
+                ],
+                'show_in_rest' => true,
             )
         );
+
+        add_shortcode('wedevs-posts', [$this, 'display_wedevs_posts']);
+    }
+
+    public function display_wedevs_posts()
+    {
+        ob_start();
+        include __DIR__ . '/templates/wedevs-posts.php';
+        return ob_get_clean();
     }
 }
